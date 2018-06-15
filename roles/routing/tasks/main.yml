@@ -1,4 +1,0 @@
----
-- name: deploy routing configuration
-  ios_config:
-    src: routing.j2
