@@ -1,4 +1,4 @@
 ---
-- name: deploy spokes nhrp configuration
+- name: deploy spoke specific configuration
   ios_config:
     src: spokes.j2

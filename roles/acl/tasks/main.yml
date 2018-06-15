@@ -3,7 +3,7 @@
   ios_config:
     parents: ip access-list extended ACL-INET-PUBLIC
     lines:
-      - permit tcp any any eq 22
+      - permit tcp 192.168.122.10 0.0.0.0 any eq 22
       - permit udp any any eq non500-isakmp
       - permit udp any any eq isakmp
       - permit esp any any
