@@ -1,0 +1,21 @@
+interface Loopback 0
+ ip address {{ interfaces.Loopback0.address }} 255.255.255.255
+
+interface Tunnel10
+ bandwidth 10000
+ ip address {{ interfaces.Tunnel10.address }} {{ interfaces.Tunnel10.mask }} 
+ no ip redirects
+ ip mtu 1400
+ ip tcp adjust-mss 1360
+ tunnel source GigabitEthernet0/0
+ tunnel mode gre multipoint
+ tunnel vrf INET-PUBLIC
+ tunnel protection ipsec profile DMVPN-PROFILE
+ ip nhrp authentication cisco123
+ ip nhrp map multicast dynamic
+ ip nhrp network-id 101
+ ip nhrp holdtime 600
+ ip nhrp redirect
+
+interface GigabitEthernet0/0
+ ip access-group ACL-INET-PUBLIC in

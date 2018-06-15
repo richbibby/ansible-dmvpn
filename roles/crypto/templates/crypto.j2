@@ -1,0 +1,19 @@
+crypto keyring DMVPN-KEYRING vrf INET-PUBLIC
+ pre-shared-key address 0.0.0.0 0.0.0.0 key cisco123
+
+crypto isakmp policy 10
+ encr aes 256
+ hash sha
+ authentication pre-share
+ group 2
+
+crypto isakmp profile FVRF-ISAKMP-INET-PUBLIC
+ keyring DMVPN-KEYRING
+ match identity address 0.0.0.0 INET-PUBLIC
+
+crypto ipsec transform-set AES256/SHA/TRANSPORT esp-aes 256 esp-sha-hmac
+ mode transport
+
+crypto ipsec profile DMVPN-PROFILE
+ set transform-set AES256/SHA/TRANSPORT
+ set isakmp-profile FVRF-ISAKMP-INET-PUBLIC

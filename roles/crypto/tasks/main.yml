@@ -1,0 +1,4 @@
+---
+- name: deploy crypto configuration
+  ios_config:
+    src: crypto.j2

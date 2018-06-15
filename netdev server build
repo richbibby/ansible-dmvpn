@@ -1,0 +1,12 @@
+netdev build, based on networkautomation gns3 image
+
+add-apt-repository ppa:jonathonf/python-3.6
+apt update
+apt install python3.6
+apt-get install python3-pip
+pip3 install virtualenv 
+alias python=python3
+apt-get install software-properties-common
+apt-add-repository ppa:ansible/ansible
+apt-get update
+apt-get install ansible

@@ -1,0 +1,17 @@
+[all:vars]
+ansible_network_os=ios
+ansible_user=ansible
+ansible_ssh_pass=ansible
+
+[hubs]
+hub1
+hub2
+
+[spokes]
+spoke1
+spoke2
+spoke3
+
+[network:children]
+hubs
+spokes

@@ -1,0 +1,20 @@
+---
+- name: VERIFY DMVPN ON A ROUTER
+  hosts: all
+  gather_facts: false
+  connection: local
+
+  tasks:
+
+    - name: CHECK TUNNEL INT | EIGRP | NHRP | DMVPN | IPSEC
+      ios_command:
+        commands:
+          - sh ip int br | i Tunnel
+          - sh ip eigrp nei
+          - sh ip route summary
+          - sh ip nhrp static
+          - sh dmvpn static | begin Interface
+          - sh crypto isakmp sa count
+          - sh crypto ipsec sa count
+      register: print_output
+    - debug: var=print_output.stdout_lines

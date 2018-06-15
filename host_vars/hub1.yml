@@ -1,0 +1,18 @@
+---
+
+interfaces:
+  Loopback0: 
+    address: 192.168.123.100
+
+  Tunnel10:
+    address: 10.0.0.100
+    mask: 255.255.255.0
+
+  GigabitEthernet0/0:
+    address: 192.168.122.100
+    mask: 255.255.255.0
+
+nhrp:
+  map: 10.0.0.101 192.168.122.101
+  multicast: 192.168.122.101
+  nhs: 10.0.0.101

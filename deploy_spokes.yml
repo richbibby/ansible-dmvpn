@@ -1,0 +1,14 @@
+---
+
+- hosts: spokes
+
+  connection: local
+  gather_facts: 'no'
+  
+
+  roles:
+    - acl
+    - crypto
+    - interfaces
+    - routing
+    - spokes

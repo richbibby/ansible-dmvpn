@@ -1,0 +1,26 @@
+{% if nhrp is defined %}
+interface Tunnel10
+ ip nhrp map {{ nhrp.map }}
+ ip nhrp map multicast {{ nhrp.multicast }}
+ ip nhrp nhs {{ nhrp.nhs }}
+{% endif %}
+
+crypto ipsec security-association replay window-size 512
+
+ip route vrf INET-PUBLIC 0.0.0.0 0.0.0.0 192.168.122.1
+
+router eigrp WAN-DMVPN-1
+ address-family ipv4 unicast autonomous-system 10	
+  af-interface default
+   passive-interface
+ exit-af-interface
+ af-interface Tunnel10
+  hello-interval 20
+  hold-time 60
+  no passive-interface
+  no split-horizon
+ exit-af-interface
+ network 10.0.0.0 0.0.0.255
+ network {{ interfaces.Loopback0.address }} 0.0.0.0
+ eigrp router-id  {{ interfaces.Loopback0.address }} 
+exit-address-family

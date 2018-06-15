@@ -1,0 +1,17 @@
+---
+
+- name: deploy acl configuration
+  ios_config:
+    parents: ip access-list extended ACL-INET-PUBLIC
+    lines:
+      - permit tcp any any eq 22
+      - permit udp any any eq non500-isakmp
+      - permit udp any any eq isakmp
+      - permit esp any any
+      - permit udp any any eq bootpc
+      - permit icmp any any echo
+      - permit icmp any any echo-reply
+      - permit icmp any any ttl-exceeded
+      - permit icmp any any port-unreachable
+      - permit udp any any gt 1023 ttl eq 1
+    before: "no ip access-list extended ACL-INET-PUBLIC"

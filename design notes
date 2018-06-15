@@ -1,0 +1,20 @@
+design notes
+
+internet 192.168.122.0/24
+netdev1 192.168.122.10
+hub1 192.168.122.100
+hub2 192.168.122.101
+spoke1 192.168.122.102
+spoke2 192.168.122.103
+spoke3 192.168.122.104
+
+dmvpn 10.0.0.0/24
+hub1 10.0.0.100
+hub2 10.0.0.101
+spoke1 10.0.0.102
+spoke2 10.0.0.103
+spoke3 10.0.0.104
+
+Tunnel
+interface tu1
+PSK secretkey

@@ -1,0 +1,13 @@
+---
+
+interfaces:
+  Loopback0: 
+    address: 192.168.123.102
+
+  Tunnel10:
+    address: 10.0.0.102
+    mask: 255.255.255.0
+
+  GigabitEthernet0/0:
+    address: 192.168.122.102
+    mask: 255.255.255.0
