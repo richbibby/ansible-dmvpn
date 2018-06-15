@@ -4,14 +4,9 @@ ansible_user=ansible
 ansible_ssh_pass=ansible
 
 [hubs]
-hub1
-hub2
+hub1 ansible_host=192.168.122.100
+hub2 ansible_host=192.168.122.101
 
 [spokes]
-spoke1
-spoke2
-spoke3
-
-[network:children]
-hubs
-spokes
+spoke1 ansible_host=192.168.122.102
+spoke2 ansible_host=192.168.122.103

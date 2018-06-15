@@ -4,11 +4,14 @@
 
   connection: local
   gather_facts: 'no'
-  
+
 
   roles:
-    - acl
-    - crypto
-    - interfaces
-    - routing
-    - spokes
+    - role: acl
+      tags: acl
+    - role: crypto
+      tags: crypto
+    - role: interfaces
+      tags: interfaces
+    - role: spokes
+      tags: spokes

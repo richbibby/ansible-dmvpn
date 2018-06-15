@@ -1,4 +1,4 @@
 ---
-- name: deploy hub nhrp configuration
+- name: deploy hub specific configuration
   ios_config:
     src: hubs.j2
