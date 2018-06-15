@@ -1,5 +1,4 @@
 ---
-
 - name: deploy acl configuration
   ios_config:
     parents: ip access-list extended ACL-INET-PUBLIC
