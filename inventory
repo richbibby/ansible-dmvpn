@@ -10,3 +10,4 @@ hub2 ansible_host=192.168.122.101
 [spokes]
 spoke1 ansible_host=192.168.122.102
 spoke2 ansible_host=192.168.122.103
+spoke3 ansible_host=192.168.122.104
