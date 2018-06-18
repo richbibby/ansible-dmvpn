@@ -1,5 +1,5 @@
 crypto keyring DMVPN-KEYRING vrf INET-PUBLIC
- pre-shared-key address 0.0.0.0 0.0.0.0 key cisco123
+ pre-shared-key address 0.0.0.0 0.0.0.0 key {{ pre_shared_key }}
 
 crypto isakmp policy 10
  encr aes 256

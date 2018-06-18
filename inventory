@@ -1,7 +1,12 @@
 [all:vars]
+
+#SSH connection
 ansible_network_os=ios
 ansible_user=ansible
 ansible_ssh_pass=ansible
+
+#Tunnel PSK
+pre_shared_key=cisco123
 
 [hubs]
 hub1 ansible_host=192.168.122.100
