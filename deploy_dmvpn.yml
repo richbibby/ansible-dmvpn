@@ -1,0 +1,44 @@
+---
+
+- name: PLAY 1 - deploy common configuration
+  hosts: all  
+  connection: local
+  gather_facts: 'no'
+
+  roles:
+    - role: acl
+      tags: acl
+    - role: crypto
+      tags: crypto
+    - role: interfaces
+      tags: interfaces
+
+
+- name: PLAY 2 - deploy hub configuration
+  hosts: hubs 
+  connection: local
+  gather_facts: 'no'
+
+  roles:
+    - role: hubs
+      tags: hubs
+
+
+- name: PLAY 3 - deploy spoke configuration
+  hosts: spokes 
+  connection: local
+  gather_facts: 'no'
+
+  roles:
+    - role: spokes
+      tags: spokes
+
+
+- name: PLAY 4 - test connectivity 
+  hosts: all
+  connection: local
+  gather_facts: 'no'
+
+  roles:
+    - role: test
+      tags: test
